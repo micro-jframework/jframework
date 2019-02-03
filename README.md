@@ -12,3 +12,12 @@ spring.datasource.url=jdbc:mysql://127.0.0.1/jframework?useUnicode=yes&character
 spring.datasource.username=root
 spring.datasource.password=root
 ```
+
+##### docker 构建步骤
+```shell
+mvn package
+docker build -t jframework .
+docker run -it --rm -p 8780:8080 jframework
+```
+
+访问127.0.0.1:8780即可看到输出效果
