@@ -38,6 +38,10 @@ orderList
 
 StringLength 验证器，验证参数字符串的长度范围
 
+##### 控制台显示全包名
+
+logging.pattern.console=%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.400logger{390}):%line{cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+
 ##### 参考资料
 
 1. https://github.com/kmtong/logback-redis-appender
