@@ -1,4 +1,5 @@
 package com.neatlife.jframework.annotation;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Size;
@@ -12,17 +13,17 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * @author suxiaolin
  */
-@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = { StringLengthValidator.class })
+@Constraint(validatedBy = {StringLengthValidator.class})
 public @interface StringLength {
 
     String message() default "{javax.validation.constraints.Size.message}";
 
-    Class<?>[] groups() default { };
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default { };
+    Class<? extends Payload>[] payload() default {};
 
     /**
      * @return size the element must be higher or equal to
@@ -39,7 +40,7 @@ public @interface StringLength {
      *
      * @see Size
      */
-    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
     @Retention(RUNTIME)
     @Documented
     @interface List {
