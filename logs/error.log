@@ -1,0 +1,120 @@
+2019-02-03 22:55:53,667 [main] ERROR o.s.boot.SpringApplication.reportFailure(SpringApplication.java:858) - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:62 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@6:90 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.action.AppenderAction - Could not create an Appender of type [com.chupinxiu.framework.logback.RedisAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@64:85 - ActionException in Action for tag [appender] ch.qos.logback.core.joran.spi.ActionException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [LOGSTASH]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.classic.AsyncAppender[ASYNC] - No attached appenders found.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderAction - Could not create an Appender of type [com.chupinxiu.framework.logback.RedisAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@64:85 - ActionException in Action for tag [appender] ch.qos.logback.core.joran.spi.ActionException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [LOGSTASH]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.classic.AsyncAppender[ASYNC] - No attached appenders found.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:305)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.neatlife.jframework.JframeworkApplication.main(JframeworkApplication.java:10)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:62 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@6:90 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.action.AppenderAction - Could not create an Appender of type [com.chupinxiu.framework.logback.RedisAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@64:85 - ActionException in Action for tag [appender] ch.qos.logback.core.joran.spi.ActionException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [LOGSTASH]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.classic.AsyncAppender[ASYNC] - No attached appenders found.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderAction - Could not create an Appender of type [com.chupinxiu.framework.logback.RedisAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@64:85 - ActionException in Action for tag [appender] ch.qos.logback.core.joran.spi.ActionException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type com.chupinxiu.framework.logback.RedisAppender
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [LOGSTASH]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.classic.AsyncAppender[ASYNC] - No attached appenders found.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:169)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:67)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:57)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:117)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:298)
+	... 14 common frames omitted
+2019-02-03 22:57:46,988 [main] ERROR o.s.boot.SpringApplication.reportFailure(SpringApplication.java:858) - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:62 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@6:90 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:305)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.neatlife.jframework.JframeworkApplication.main(JframeworkApplication.java:10)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:62 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@6:90 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [EMAIL]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:169)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:67)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:57)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:117)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:298)
+	... 14 common frames omitted
+2019-02-03 22:58:00,502 [main] ERROR o.s.boot.SpringApplication.reportFailure(SpringApplication.java:858) - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:62 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@6:90 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:305)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:266)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:229)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:202)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:347)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.neatlife.jframework.JframeworkApplication.main(JframeworkApplication.java:10)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:62 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@6:90 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:169)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:67)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:57)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:117)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:298)
+	... 14 common frames omitted

@@ -1,0 +1,28 @@
+2019-02-03 22:58:09,912 [main] INFO  c.n.jframework.JframeworkApplication.logStarting(StartupInfoLogger.java:50) - Starting JframeworkApplication on pro18.local with PID 24601 (/Users/suxiaolin/Dropbox/Projects/jframework/target/classes started by suxiaolin in /Users/suxiaolin/Dropbox/Projects/jframework)
+2019-02-03 22:58:09,916 [main] INFO  c.n.jframework.JframeworkApplication.logStartupProfileInfo(SpringApplication.java:675) - No active profile set, falling back to default profiles: default
+2019-02-03 22:58:10,579 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-03 22:58:10,609 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2019-02-03 22:58:10,970 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f9afca9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-03 22:58:11,304 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:90) - Tomcat initialized with port(s): 8080 (http)
+2019-02-03 22:58:11,333 [main] INFO  o.a.catalina.core.StandardService.log(DirectJDKLog.java:173) - Starting service [Tomcat]
+2019-02-03 22:58:11,333 [main] INFO  o.a.catalina.core.StandardEngine.log(DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-02-03 22:58:11,341 [main] INFO  o.a.c.core.AprLifecycleListener.log(DirectJDKLog.java:173) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/suxiaolin/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-02-03 22:58:11,459 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log(DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2019-02-03 22:58:11,460 [main] INFO  o.s.web.context.ContextLoader.prepareWebApplicationContext(ServletWebServerApplicationContext.java:296) - Root WebApplicationContext: initialization completed in 1500 ms
+2019-02-03 22:58:11,723 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) - HikariPool-1 - Starting...
+2019-02-03 22:58:11,970 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) - HikariPool-1 - Start completed.
+2019-02-03 22:58:12,207 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation(LogHelper.java:31) - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-03 22:58:12,295 [main] INFO  org.hibernate.Version.logVersion(Version.java:46) - HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-03 22:58:12,296 [main] INFO  org.hibernate.cfg.Environment.<clinit>(Environment.java:213) - HHH000206: hibernate.properties not found
+2019-02-03 22:58:12,431 [main] INFO  o.h.annotations.common.Version.<clinit>(JavaReflectionManager.java:49) - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-03 22:58:12,542 [main] INFO  org.hibernate.dialect.Dialect.<init>(Dialect.java:157) - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-02-03 22:58:12,785 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:415) - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-03 22:58:13,060 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize(ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-03 22:58:13,478 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start(TomcatWebServer.java:204) - Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-03 22:58:13,483 [main] INFO  c.n.jframework.JframeworkApplication.logStarted(StartupInfoLogger.java:59) - Started JframeworkApplication in 3.924 seconds (JVM running for 4.687)
+2019-02-03 22:58:18,725 [Thread-13] INFO  o.s.s.c.ThreadPoolTaskExecutor.shutdown(ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-03 22:58:18,726 [Thread-13] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy(AbstractEntityManagerFactoryBean.java:597) - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-03 22:58:18,728 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350) - HikariPool-1 - Shutdown initiated...
+2019-02-03 22:58:18,731 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352) - HikariPool-1 - Shutdown completed.
