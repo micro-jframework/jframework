@@ -4,3 +4,11 @@
 1. 实现jpa对Integer类型的时间戳的created_at, updated_at和deleted_at字段的自动维护
 
 
+##### 配置文件示例: src/main/resources/application.properties
+
+```properties
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1/jframework?useUnicode=yes&characterEncoding=utf-8&useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+```
