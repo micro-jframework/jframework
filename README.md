@@ -25,3 +25,8 @@ docker run -it --rm -p 8780:8080 jframework
 ##### 工具类
 
 DateUtil::currentSecond() 获取当前unix时间戳，单位为秒
+
+##### 参考资料
+
+1. https://github.com/kmtong/logback-redis-appender
+2. https://github.com/looly/hutool
