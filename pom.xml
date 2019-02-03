@@ -50,6 +50,7 @@
     </dependencies>
 
     <build>
+        <finalName>jframework</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
