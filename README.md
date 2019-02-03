@@ -27,6 +27,12 @@ docker run -it --rm -p 8780:8080 jframework
 DateUtil::currentSecond() 获取当前unix时间戳，单位为秒
 
 MapperUtil::to(对象1, SomeClass.class) 创建SomeClass类的对象，并把对象1的属性复制到SomeClass的对象上, 在stream流式类型转换时非常有用
+```java
+orderList
+    .stream()
+    .map(order -> MapperUtil.to(order, OrderDto.class))
+    .collect(Collectors.toList());
+```
 
 ##### 验证器
 
