@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 @Slf4j
-public class FrameworkExceptionHandler {
+public class ControllerExceptionHandler {
     @ExceptionHandler({Exception.class})
     public String handleException(HttpServletRequest request, Exception e) throws Exception {
         log.error("Request URL : {} , Exception : {}", request.getRequestURL(), e.getMessage());
