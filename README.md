@@ -21,3 +21,7 @@ docker run -it --rm -p 8780:8080 jframework
 ```
 
 访问127.0.0.1:8780即可看到输出效果
+
+##### 工具类
+
+DateUtil::currentSecond() 获取当前unix时间戳，单位为秒
