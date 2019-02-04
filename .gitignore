@@ -27,3 +27,5 @@
 /nbdist/
 /.nb-gradle/
 /build/
+
+logs/*
