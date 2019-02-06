@@ -3,11 +3,11 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <property name="logback.logDir" value="logs/"/>
 
-    <springProperty scope="context" name="mailHost" source="spring.mail.host" />
-    <springProperty scope="context" name="mailPort" source="spring.mail.port" />
-    <springProperty scope="context" name="mailUsername" source="spring.mail.username" />
-    <springProperty scope="context" name="mailPassword" source="spring.mail.password" />
-    <springProperty scope="context" name="mailEnableTls" source="spring.mail.properties.mail.smtp.starttls.enable" />
+    <springProperty scope="context" name="MAIL_HOST" source="spring.mail.host" />
+    <springProperty scope="context" name="MAIL_PORT" source="spring.mail.port" />
+    <springProperty scope="context" name="MAIL_USERNAME" source="spring.mail.username" />
+    <springProperty scope="context" name="MAIL_PASSWORD" source="spring.mail.password" />
+    <springProperty scope="context" name="MAIL_ENABLE_TLS" source="spring.mail.properties.mail.smtp.starttls.enable" />
 
     <appender name="infoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果只是想要 Info 级别的日志，只是过滤 info 还是会输出 Error 日志，因为 Error 的级别高，
@@ -83,16 +83,16 @@
         <appender-ref ref="LOGSTASH" />
     </appender>
     <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
-        <smtpHost>${mailHost}</smtpHost>
-        <smtpPort>${mailPort}</smtpPort>
-        <username>${mailUsername}</username>
-        <password>${mailPassword}</password>
-        <SSL>${mailEnableTls}</SSL>
+        <smtpHost>${MAIL_HOST}</smtpHost>
+        <smtpPort>${MAIL_PORT}</smtpPort>
+        <username>${MAIL_USERNAME}</username>
+        <password>${MAIL_PASSWORD}</password>
+        <SSL>${MAIL_ENABLE_TLS}</SSL>
         <asynchronousSending>true</asynchronousSending>
         <to>dear.lin@live.com</to>
         <from>jframework</from>
         <subject>Error: %logger{20} - %m</subject>
-        <layout class="ch.qos.logback.classic.html.HTMLLayout"/>
+        <layout class="com.neatlife.jframework.logback.CustomHTMLLayout"/>
     </appender>
 
     <root level="DEBUG">
