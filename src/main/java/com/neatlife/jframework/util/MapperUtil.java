@@ -7,7 +7,7 @@ import org.springframework.beans.BeanUtils;
  */
 public class MapperUtil {
 
-    public static <SOURCE, TARGET> TARGET to(SOURCE source, Class<TARGET> targetClass) {
+    public <SOURCE, TARGET> TARGET to(SOURCE source, Class<TARGET> targetClass) {
         TARGET target = BeanUtils.instantiateClass(targetClass);
         BeanUtils.copyProperties(source, target);
         return target;

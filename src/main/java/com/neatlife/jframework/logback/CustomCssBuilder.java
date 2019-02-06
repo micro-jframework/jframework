@@ -4,6 +4,9 @@ import ch.qos.logback.classic.html.DefaultCssBuilder;
 
 import static ch.qos.logback.core.CoreConstants.LINE_SEPARATOR;
 
+/**
+ * @author suxiaolin
+ */
 public class CustomCssBuilder extends DefaultCssBuilder {
     @Override
     public void addCss(StringBuilder sbuf) {

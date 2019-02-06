@@ -5,6 +5,9 @@ import ch.qos.logback.classic.html.HTMLLayout;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.html.IThrowableRenderer;
 
+/**
+ * @author suxiaolin
+ */
 public class CustomHTMLLayout extends HTMLLayout {
 
     static final String DEFAULT_CONVERSION_PATTERN = "%date%thread%level%logger%mdc%msg";
