@@ -14,9 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
- * Json与Java对象互转<br/>
- * <p>
- * 为方便在Java8 Stream中使用，操作返回的异常都是运行时异常
+ * @author suxiaolin
  */
 public class JsonUtil {
 
