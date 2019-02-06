@@ -11,6 +11,18 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://127.0.0.1/jframework?useUnicode=yes&characterEncoding=utf-8&useSSL=false
 spring.datasource.username=root
 spring.datasource.password=root
+spring.jpa.open-in-view=false
+logging.level.root=INFO
+logging.config=classpath:logback-spring.xml
+
+spring.mail.host=smtp.qq.com
+spring.mail.port=587
+spring.mail.username=username
+spring.mail.password=password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+
 ```
 
 ##### docker 构建步骤
@@ -24,13 +36,13 @@ docker run -it --rm -p 8780:8080 jframework
 
 ##### 工具类
 
-DateUtil::currentSecond() 获取当前unix时间戳，单位为秒
+$.date.currentSecond() 获取当前unix时间戳，单位为秒
 
 MapperUtil::to(对象1, SomeClass.class) 创建SomeClass类的对象，并把对象1的属性复制到SomeClass的对象上, 在stream流式类型转换时非常有用
 ```java
 orderList
     .stream()
-    .map(order -> MapperUtil.to(order, OrderDto.class))
+    .map(order -> $.mapper.to(order, OrderDto.class))
     .collect(Collectors.toList());
 ```
 
@@ -46,3 +58,5 @@ logging.pattern.console=%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PA
 
 1. https://github.com/kmtong/logback-redis-appender
 2. https://github.com/looly/hutool
+3. https://github.com/gudaoxuri/dew-common
+4. https://github.com/gudaoxuri/dew
