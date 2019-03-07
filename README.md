@@ -60,3 +60,4 @@ logging.pattern.console=%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PA
 2. https://github.com/looly/hutool
 3. https://github.com/gudaoxuri/dew-common
 4. https://github.com/gudaoxuri/dew
+5. https://github.com/xdd-organ/xdd-nasa
