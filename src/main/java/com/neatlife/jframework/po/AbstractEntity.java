@@ -6,7 +6,7 @@ import lombok.Data;
  * @author suxiaolin
  */
 @Data
-public class AbstractEntity {
+public abstract class AbstractEntity {
 
     private Integer createdAt;
 
