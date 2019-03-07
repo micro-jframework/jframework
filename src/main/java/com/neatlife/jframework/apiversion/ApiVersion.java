@@ -4,6 +4,10 @@ import org.springframework.web.bind.annotation.Mapping;
 
 import java.lang.annotation.*;
 
+/**
+ * @author suxiaolin
+ * @date 2019-03-07 12:39
+ */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

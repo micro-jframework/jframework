@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author suxiaolin
+ * @date 2019-03-07 12:39
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("{v}/main")

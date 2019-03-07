@@ -10,6 +10,10 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.ParameterBuilderPlugin;
 import springfox.documentation.spi.service.contexts.ParameterContext;
 
+/**
+ * @author suxiaolin
+ * @date 2019-03-07 12:39
+ */
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE + 1)
 @Slf4j

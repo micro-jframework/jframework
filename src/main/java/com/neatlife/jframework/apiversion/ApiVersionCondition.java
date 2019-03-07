@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author suxiaolin
+ * @date 2019-03-07 12:39
+ */
 public class ApiVersionCondition implements RequestCondition<ApiVersionCondition> {
 
     // 路径中版本的前缀， 这里用 /v[1-9]/的形式

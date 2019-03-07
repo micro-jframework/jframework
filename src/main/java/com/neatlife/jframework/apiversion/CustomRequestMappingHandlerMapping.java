@@ -6,6 +6,10 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
+/**
+ * @author suxiaolin
+ * @date 2019-03-07 12:39
+ */
 public class CustomRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
     @Override
