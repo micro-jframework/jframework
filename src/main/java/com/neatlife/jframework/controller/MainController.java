@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("{v}/main")
 public class MainController {
 
-
     /**
      * 方式一
      */

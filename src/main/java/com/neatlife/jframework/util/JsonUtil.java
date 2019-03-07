@@ -22,10 +22,6 @@ public class JsonUtil {
 
     private ObjectMapper mapper;
 
-    static JsonUtil pick(String instanceId) {
-        return INSTANCES.computeIfAbsent(instanceId, k -> new JsonUtil());
-    }
-
     private JsonUtil() {
         mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -37,6 +33,10 @@ public class JsonUtil {
         mapper.registerModule(javaTimeModule);
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         setTimeZone(Calendar.getInstance().getTimeZone());
+    }
+
+    static JsonUtil pick(String instanceId) {
+        return INSTANCES.computeIfAbsent(instanceId, k -> new JsonUtil());
     }
 
     public void setTimeZone(TimeZone tz) {
