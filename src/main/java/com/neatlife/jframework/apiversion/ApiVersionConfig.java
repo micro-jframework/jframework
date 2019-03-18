@@ -10,12 +10,12 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  * @date 2019-03-07 12:39
  */
 @Configuration
-public class WebConfig extends WebMvcConfigurationSupport {
+public class ApiVersionConfig extends WebMvcConfigurationSupport {
 
     @Override
     @Bean
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {
-        RequestMappingHandlerMapping handlerMapping = new CustomRequestMappingHandlerMapping();
+        RequestMappingHandlerMapping handlerMapping = new ApiVersionRequestMappingHandlerMapping();
         handlerMapping.setOrder(0);
         handlerMapping.setInterceptors(getInterceptors());
         return handlerMapping;

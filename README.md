@@ -1,7 +1,17 @@
 
 ##### 基于对spring boot的二次封装，目的是减少重复代码，提高开发效率, 收集可复用的技术
 
-1. 实现jpa对Integer类型的时间戳的created_at, updated_at和deleted_at字段的自动维护
+1. 实现jpa对Long类型的时间戳的created_at,
+   updated_at和deleted_at字段的自动维护
+2. 日志集成elk
+3. 日期和json工具类
+4. 集成redis
+5. 集成数据库操作jpa
+6. 集成swagger文档
+7. 控制器发生错误，全局拦截
+8. 支持docker部署
+9. 支持k8s部署
+10. 接口版本控制
 
 
 ##### 配置文件示例: src/main/resources/application.properties
@@ -27,13 +37,36 @@ spring.mail.properties.mail.smtp.starttls.required=true
 logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 spring.jpa.properties.hibernate.format_sql=true
+
+# Redis数据库索引（默认为0）
+spring.redis.database=0
+# Redis服务器地址
+spring.redis.host=localhost
+# Redis服务器连接端口
+spring.redis.port=6379
+# Redis服务器连接密码（默认为空）
+spring.redis.password=
+# 连接池最大连接数（使用负值表示没有限制） 默认 8
+spring.redis.lettuce.pool.max-active=8
+# 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+spring.redis.lettuce.pool.max-wait=-1
+# 连接池中的最大空闲连接 默认 8
+spring.redis.lettuce.pool.max-idle=8
+# 连接池中的最小空闲连接 默认 0
+spring.redis.lettuce.pool.min-idle=0
 ```
 
 ##### docker 构建步骤
 ```shell
+# 本地调试
 mvn package
 docker build -t jframework .
 docker run -it --rm -p 8780:8080 jframework
+
+# 推送阿里云
+docker build -t jframework .
+docker tag jframework:latest registry.cn-hangzhou.aliyuncs.com/suxiaolin/jframework:latest
+docker push registry.cn-hangzhou.aliyuncs.com/suxiaolin/jframework:latest
 ```
 
 访问127.0.0.1:8780即可看到输出效果
@@ -66,3 +99,4 @@ logging.pattern.console=%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PA
 4. https://github.com/gudaoxuri/dew
 5. https://github.com/xdd-organ/xdd-nasa
 6. https://github.com/indrabasak/swagger-deepdive
+7. https://github.com/ityouknow/spring-boot-examples

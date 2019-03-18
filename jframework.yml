@@ -1,0 +1,69 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "extensions/v1beta1",
+  "metadata": {
+    "name": "jframework",
+    "namespace": "default",
+    "labels": {
+      "k8s-app": "jframework"
+    },
+    "annotations": {
+      "deployment.kubernetes.io/revision": "2"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "k8s-app": "jframework"
+      }
+    },
+    "template": {
+      "metadata": {
+        "name": "jframework",
+        "labels": {
+          "k8s-app": "jframework"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "jframework",
+            "image": "registry.cn-hangzhou.aliyuncs.com/suxiaolin/jframework:latest",
+            "readinessProbe": {
+              "httpGet": {
+                "scheme": "HTTP",
+                "path":  "/heartbeat",
+                "port": 8080
+              },
+              "initialDelaySeconds": 10,
+              "periodSeconds": 5
+            },
+            "resources": {},
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always",
+            "securityContext": {
+              "privileged": false,
+              "procMount": "Default"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "strategy": {
+      "type": "RollingUpdate",
+      "rollingUpdate": {
+        "maxUnavailable": "25%",
+        "maxSurge": "25%"
+      }
+    },
+    "revisionHistoryLimit": 10,
+    "progressDeadlineSeconds": 600
+  }
+}
