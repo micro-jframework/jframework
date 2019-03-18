@@ -30,6 +30,15 @@
           {
             "name": "jframework",
             "image": "registry.cn-hangzhou.aliyuncs.com/suxiaolin/jframework:latest",
+            "readinessProbe": {
+              "httpGet": {
+                "scheme": "HTTP",
+                "path":  "/heartbeat",
+                "port": 8080
+              },
+              "initialDelaySeconds": 10,
+              "periodSeconds": 5
+            },
             "resources": {},
             "terminationMessagePath": "/dev/termination-log",
             "terminationMessagePolicy": "File",

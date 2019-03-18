@@ -5,7 +5,7 @@
    updated_at和deleted_at字段的自动维护
 2. 日志集成elk
 3. 日期和json工具类
-4. 集成redis 
+4. 集成redis
 5. 集成数据库操作jpa
 6. 集成swagger文档
 7. 控制器发生错误，全局拦截
@@ -58,9 +58,15 @@ spring.redis.lettuce.pool.min-idle=0
 
 ##### docker 构建步骤
 ```shell
+# 本地调试
 mvn package
 docker build -t jframework .
 docker run -it --rm -p 8780:8080 jframework
+
+# 推送阿里云
+docker build -t jframework .
+docker tag jframework:latest registry.cn-hangzhou.aliyuncs.com/suxiaolin/jframework:latest
+docker push registry.cn-hangzhou.aliyuncs.com/suxiaolin/jframework:latest
 ```
 
 访问127.0.0.1:8780即可看到输出效果
