@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  * @author suxiaolin
  * @date 2019-03-07 12:39
  */
-public class CustomRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
+public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
     @Override
     protected RequestCondition<ApiVersionCondition> getCustomTypeCondition(Class<?> handlerType) {
