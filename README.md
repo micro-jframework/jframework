@@ -1,7 +1,17 @@
 
 ##### 基于对spring boot的二次封装，目的是减少重复代码，提高开发效率, 收集可复用的技术
 
-1. 实现jpa对Integer类型的时间戳的created_at, updated_at和deleted_at字段的自动维护
+1. 实现jpa对Long类型的时间戳的created_at,
+   updated_at和deleted_at字段的自动维护
+2. 日志集成elk
+3. 日期和json工具类
+4. 集成redis 
+5. 集成数据库操作jpa
+6. 集成swagger文档
+7. 控制器发生错误，全局拦截
+8. 支持docker部署
+9. 支持k8s部署
+10. 接口版本控制
 
 
 ##### 配置文件示例: src/main/resources/application.properties

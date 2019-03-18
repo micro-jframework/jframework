@@ -8,11 +8,11 @@ import lombok.Data;
 @Data
 public abstract class AbstractEntity {
 
-    private Integer createdAt;
+    private Long createdAt;
 
-    private Integer updatedAt;
+    private Long updatedAt;
 
-    private Integer deletedAt;
+    private Long deletedAt;
 
 }
 

@@ -5,8 +5,8 @@ package com.neatlife.jframework.util;
  */
 public final class DateUtil {
 
-    public Integer currentSecond() {
-        return (int) (System.currentTimeMillis() / 1000);
+    public Long currentSecond() {
+        return (Long) (System.currentTimeMillis() / 1000);
     }
 
 }
