@@ -1,4 +1,4 @@
-package com.neatlife.jframework.config;
+package com.neatlife.jframework.springfox;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

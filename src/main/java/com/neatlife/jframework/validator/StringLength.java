@@ -1,4 +1,4 @@
-package com.neatlife.jframework.annotation;
+package com.neatlife.jframework.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

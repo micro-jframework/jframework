@@ -1,4 +1,4 @@
-package com.neatlife.jframework.config;
+package com.neatlife.jframework.redis;
 
 /**
  * @author suxiaolin

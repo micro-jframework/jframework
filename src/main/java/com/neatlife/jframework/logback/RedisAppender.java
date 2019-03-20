@@ -15,12 +15,16 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
     JedisPool pool;
 
-    // keep this for config compatibility for now
+    /**
+     * keep this for redis compatibility for now
+     */
     JSONEventLayout jsonlayout;
 
     Layout<ILoggingEvent> layout;
 
-    // logger configurable options
+    /**
+     * logger configurable options
+     */
     String host = "localhost";
     int port = Protocol.DEFAULT_PORT;
     String key = null;

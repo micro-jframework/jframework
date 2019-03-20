@@ -1,4 +1,4 @@
-package com.neatlife.jframework.swagger;
+package com.neatlife.jframework.springfox;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.extern.slf4j.Slf4j;

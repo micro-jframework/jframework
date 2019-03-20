@@ -1,4 +1,4 @@
-package com.neatlife.jframework.swagger;
+package com.neatlife.jframework.springfox;
 
 import javax.validation.constraints.Null;
 import java.lang.annotation.*;

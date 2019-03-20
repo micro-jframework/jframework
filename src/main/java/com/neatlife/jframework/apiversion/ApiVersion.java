@@ -13,7 +13,6 @@ import java.lang.annotation.*;
 @Documented
 @Mapping
 public @interface ApiVersion {
-
     /**
      * 版本号
      *

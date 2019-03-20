@@ -1,4 +1,4 @@
-package com.neatlife.jframework.config;
+package com.neatlife.jframework.hystrix;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixInvokable;
