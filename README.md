@@ -13,6 +13,7 @@
 10. 支持json序列化时自定义小数位数
 11. 接口版本控制
 12. 保留精度的数学计算工具类
+13. http请求工具类
 
 
 ##### 配置文件示例: src/main/resources/application.properties

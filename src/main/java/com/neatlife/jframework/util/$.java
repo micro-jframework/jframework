@@ -11,5 +11,7 @@ public class $ {
 
     public static MapperUtil mapper = new MapperUtil();
 
+    public static HttpUtil http = new HttpUtil();
+
 }
 
