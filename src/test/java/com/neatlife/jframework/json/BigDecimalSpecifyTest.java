@@ -13,13 +13,25 @@ import java.math.BigDecimal;
 @SpringBootTest
 public class BigDecimalSpecifyTest {
 
+    @Test
+    public void test1() throws Exception {
+        Product product = new Product(new BigDecimal("111231.5585"), "小米手机");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Product product1 = objectMapper.readValue(objectMapper.writeValueAsString(product), Product.class);
+
+        Assert.assertEquals(new BigDecimal("111231.559"), product1.getPrice());
+    }
+
     public static class Product {
 
         @BigDecimalSpecify(3)
         private BigDecimal price;
         private String name;
 
-        public Product() {}
+        public Product() {
+        }
 
         public Product(BigDecimal price, String name) {
             this.price = price;
@@ -41,17 +53,6 @@ public class BigDecimalSpecifyTest {
         public void setPrice(BigDecimal price) {
             this.price = price;
         }
-    }
-
-    @Test
-    public void test1() throws Exception {
-        Product product = new Product(new BigDecimal("111231.5585"), "小米手机");
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        Product product1 = objectMapper.readValue(objectMapper.writeValueAsString(product), Product.class);
-
-        Assert.assertEquals(new BigDecimal("111231.559"), product1.getPrice());
     }
 
 }

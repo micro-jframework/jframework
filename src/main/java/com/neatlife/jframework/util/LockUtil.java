@@ -12,19 +12,18 @@ import java.util.concurrent.TimeUnit;
  * @date 2019-03-21 8:12
  */
 public class LockUtil {
-    private static final Long SUCCESS = 1L;
     public static final String LOCK_SCRIPT_STR = "if redis.call('set',KEYS[1],ARGV[1],'EX',ARGV[2],'NX') then return 1 else return 0 end";
     public static final String UNLOCK_SCRIPT_STR = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-
     public static final Integer DEFAULT_EXPIRE_SECOND = 60;
     public static final Long DEFAULT_LOOP_TIMES = 10L;
     public static final Long DEFAULT_SLEEP_INTERVAL = 500L;
     public static final String PACKAGE_NAME_SPLIT_STR = "\\.";
     public static final String CLASS_AND_METHOD_CONCAT_STR = "->";
-
+    private static final Long SUCCESS = 1L;
     private static RedisTemplate redisTemplate;
 
-    private LockUtil() {}
+    private LockUtil() {
+    }
 
     public static void setRedisTemplate(RedisTemplate redisTemplate) {
         LockUtil.redisTemplate = redisTemplate;
@@ -113,10 +112,7 @@ public class LockUtil {
     public static boolean releaseDistributedLock(String lockKey, String requestId) {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>(UNLOCK_SCRIPT_STR, Long.class);
         Object result = redisTemplate.execute(redisScript, Collections.singletonList(lockKey), requestId);
-        if (SUCCESS.equals(result)) {
-            return true;
-        }
-        return false;
+        return SUCCESS.equals(result);
     }
 
     private static String getSimpleClassName(String className) {

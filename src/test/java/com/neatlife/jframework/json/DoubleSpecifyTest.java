@@ -11,13 +11,25 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class DoubleSpecifyTest {
 
+    @Test
+    public void test1() throws Exception {
+        Product product = new Product(111231.5585, "小米手机");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Product product1 = objectMapper.readValue(objectMapper.writeValueAsString(product), Product.class);
+
+        Assert.assertEquals(111231.56D, product1.getPrice(), 0.0);
+    }
+
     public static class Product {
 
         @DoubleSpecify
         private Double price;
         private String name;
 
-        public Product() {}
+        public Product() {
+        }
 
         public Product(Double price, String name) {
             this.price = price;
@@ -39,17 +51,6 @@ public class DoubleSpecifyTest {
         public void setPrice(Double price) {
             this.price = price;
         }
-    }
-
-    @Test
-    public void test1() throws Exception {
-        Product product = new Product(111231.5585, "小米手机");
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        Product product1 = objectMapper.readValue(objectMapper.writeValueAsString(product), Product.class);
-
-        Assert.assertEquals(111231.56D, product1.getPrice(), 0.0);
     }
 
 }

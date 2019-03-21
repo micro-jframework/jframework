@@ -188,8 +188,8 @@ public class Response<E> implements Serializable {
     /**
      * 响应body转换，将body类型A转换成类型B
      *
-     * @param response 源响应
-     * @param bodyClazz    目标body类型
+     * @param response  源响应
+     * @param bodyClazz 目标body类型
      * @return 目标响应
      */
     public static <E> Response<E> generic(Response response, Class<E> bodyClazz) {
@@ -214,8 +214,8 @@ public class Response<E> implements Serializable {
     /**
      * 响应body转换(列表)，将body类型A转换成类型B
      *
-     * @param response 源响应
-     * @param bodyClazz    目标body类型
+     * @param response  源响应
+     * @param bodyClazz 目标body类型
      * @return 目标响应
      */
     public static <E> Response<List<E>> genericList(Response response, Class<E> bodyClazz) {
@@ -240,8 +240,8 @@ public class Response<E> implements Serializable {
     /**
      * 响应body转换(Set)，将body类型A转换成类型B
      *
-     * @param response 源响应
-     * @param bodyClazz    目标body类型
+     * @param response  源响应
+     * @param bodyClazz 目标body类型
      * @return 目标响应
      */
     public static <E> Response<Set<E>> genericSet(Response response, Class<E> bodyClazz) {

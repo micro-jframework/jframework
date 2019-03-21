@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-03-21 08:37
  */
 @Component
-public class ApplicationStartedEventListener  implements ApplicationListener<ApplicationStartedEvent> {
+public class ApplicationStartedEventListener implements ApplicationListener<ApplicationStartedEvent> {
 
     private final RedisTemplate redisTemplate;
 

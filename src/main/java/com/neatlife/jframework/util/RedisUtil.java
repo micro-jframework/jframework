@@ -13,11 +13,12 @@ public class RedisUtil {
 
     private static RedisTemplate redisTemplate;
 
+    private RedisUtil() {
+    }
+
     public static void setRedisTemplate(RedisTemplate redisTemplate) {
         RedisUtil.redisTemplate = redisTemplate;
     }
-
-    private RedisUtil() {}
 
     /**
      * 缓存基本的对象，Integer、String、实体类等

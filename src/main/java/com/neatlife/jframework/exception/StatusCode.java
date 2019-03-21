@@ -22,6 +22,7 @@ public enum StatusCode {
 
     /**
      * 构造方法
+     *
      * @param name
      * @param index
      * @return

@@ -7,7 +7,7 @@ public class DateUtilTest {
 
     @Test
     public void currentSecond() {
-        Long timestamp =  $.date.currentSecond();
+        Long timestamp = $.date.currentSecond();
         Assert.assertTrue(timestamp > 0);
 
         System.out.println(timestamp);
