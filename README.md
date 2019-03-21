@@ -14,6 +14,7 @@
 11. 接口版本控制
 12. 保留精度的数学计算工具类
 13. http请求工具类
+14. redis和redis分布式锁工具类
 
 
 ##### 配置文件示例: src/main/resources/application.properties
@@ -109,3 +110,4 @@ logging.pattern.console=%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PA
 5. https://github.com/xdd-organ/xdd-nasa
 6. https://github.com/indrabasak/swagger-deepdive
 7. https://github.com/ityouknow/spring-boot-examples
+8. https://github.com/WellJay/spring-data-redis-tools

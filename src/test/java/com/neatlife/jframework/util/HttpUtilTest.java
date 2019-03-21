@@ -1,6 +1,5 @@
-package com.neatlife.jframework;
+package com.neatlife.jframework.util;
 
-import com.neatlife.jframework.util.$;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HttpTest {
+public class HttpUtilTest {
 
     @Test
     public void testGet() throws IOException {

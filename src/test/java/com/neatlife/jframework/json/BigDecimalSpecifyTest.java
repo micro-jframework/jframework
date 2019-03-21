@@ -1,7 +1,6 @@
-package com.neatlife.jframework;
+package com.neatlife.jframework.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.neatlife.jframework.json.BigDecimalSpecify;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

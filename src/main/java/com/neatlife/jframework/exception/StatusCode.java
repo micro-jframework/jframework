@@ -20,7 +20,12 @@ public enum StatusCode {
     private String name;
     private Integer index;
 
-    // 构造方法
+    /**
+     * 构造方法
+     * @param name
+     * @param index
+     * @return
+     */
     StatusCode(String name, Integer index) {
         this.name = name;
         this.index = index;

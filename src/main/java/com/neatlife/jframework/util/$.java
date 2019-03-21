@@ -1,6 +1,8 @@
 package com.neatlife.jframework.util;
 
 /**
+ * 工具类入口
+ *
  * @author suxiaolin
  */
 public class $ {
