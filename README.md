@@ -16,6 +16,7 @@
 13. http请求工具类
 14. redis和redis分布式锁工具类
 15. json响应工具类
+16. 支持Jenkinsfile构建
 
 
 ##### 配置文件示例: src/main/resources/application.properties
@@ -63,7 +64,7 @@ spring.redis.lettuce.pool.min-idle=0
 ##### docker 构建步骤
 ```shell
 # 本地调试
-mvn package
+mvn clean package
 docker build -t jframework .
 docker run -it --rm -p 8780:8080 jframework
 
