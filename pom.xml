@@ -8,7 +8,7 @@
         <version>2.1.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.neatlife</groupId>
+    <groupId>com.github.neatlife</groupId>
     <artifactId>jframework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>jframework</name>
