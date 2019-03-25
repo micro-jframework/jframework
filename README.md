@@ -103,6 +103,34 @@ StringLength 验证器，验证参数字符串的长度范围
 
 logging.pattern.console=%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.400logger{390}):%line{cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
 
+##### logstash 配置
+```conf
+input {
+    redis {
+        data_type => "list"
+        key => "logstash"
+        host => "127.0.0.1"
+        port => 6379
+        threads => 5
+        codec => "json"
+    }
+}
+filter {
+
+}
+output {
+
+    elasticsearch {
+        hosts => ["elasticsearch:9200"]
+        index => "logstash-%{type}-%{+YYYY.MM.dd}"
+        document_type => "%{type}"
+        workers => 1
+        template_overwrite => true
+    }
+    stdout{}
+}
+```
+
 ##### 参考资料
 
 1. https://github.com/kmtong/logback-redis-appender
