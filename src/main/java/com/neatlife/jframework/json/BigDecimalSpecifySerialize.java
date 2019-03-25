@@ -32,7 +32,7 @@ public class BigDecimalSpecifySerialize extends JsonSerializer<BigDecimal> imple
         if (value == null) {
             return;
         }
-        gen.writeNumber(value.setScale(decimalNumber, BigDecimal.ROUND_HALF_UP).toString());
+        gen.writeNumber(value.setScale(decimalNumber, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toString());
     }
 
     @Override

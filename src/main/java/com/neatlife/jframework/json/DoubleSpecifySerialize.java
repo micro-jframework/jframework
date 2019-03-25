@@ -32,7 +32,7 @@ public class DoubleSpecifySerialize extends JsonSerializer<Double> implements Co
         if (value == null) {
             return;
         }
-        gen.writeNumber(BigDecimal.valueOf(value).setScale(decimalNumber, BigDecimal.ROUND_HALF_UP).toString());
+        gen.writeNumber(BigDecimal.valueOf(value).setScale(decimalNumber, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toString());
     }
 
     @Override
