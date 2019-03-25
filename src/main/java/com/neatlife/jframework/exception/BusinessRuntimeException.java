@@ -6,21 +6,27 @@ import lombok.EqualsAndHashCode;
 /**
  * @author suxiaolin
  */
-@Data()
+@Data
 @EqualsAndHashCode(callSuper = true)
 public class BusinessRuntimeException extends RuntimeException {
-    private String msg;
-    private StatusCode statusCode;
+    private String description;
+    private Integer code;
 
-    public BusinessRuntimeException(StatusCode statusCode, String msg) {
-        super(msg);
-        this.msg = msg;
-        this.statusCode = statusCode;
+    public BusinessRuntimeException(Integer code, String description) {
+        super(description);
+        this.description = description;
+        this.code = code;
     }
 
-    public BusinessRuntimeException(StatusCode statusCode, String msg, Throwable e) {
-        super(msg, e);
-        this.msg = msg;
-        this.statusCode = statusCode;
+    public BusinessRuntimeException(Integer code, String description, Throwable e) {
+        super(description, e);
+        this.description = description;
+        this.code = code;
+    }
+
+    public BusinessRuntimeException(IBusinessExceptionEnum iBusinessExceptionEnum) {
+        super(iBusinessExceptionEnum.getDescription());
+        this.description = iBusinessExceptionEnum.getDescription();
+        this.code = iBusinessExceptionEnum.getCode();
     }
 }
