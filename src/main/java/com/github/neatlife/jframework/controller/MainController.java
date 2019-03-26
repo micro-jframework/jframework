@@ -1,7 +1,6 @@
 package com.github.neatlife.jframework.controller;
 
 import com.github.neatlife.jframework.apiversion.ApiVersion;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,10 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @author suxiaolin
  * @date 2019-03-07 12:39
  */
-@CrossOrigin
 @RestController
 @RequestMapping("{v}/main")
-public class MainController {
+public class MainController extends Controller {
 
     /**
      * 方式一
