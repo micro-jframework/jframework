@@ -17,6 +17,7 @@
 14. redis和redis分布式锁工具类
 15. json响应工具类
 16. 支持Jenkinsfile构建
+17. 二维码生成工具类
 
 
 ##### 配置文件示例: src/main/resources/application.properties

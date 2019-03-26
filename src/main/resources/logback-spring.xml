@@ -65,7 +65,7 @@
             <pattern>%d [%t] %-5level %logger{36}.%M\(%file:%line\) - %msg%n</pattern>
         </encoder>
     </appender>
-    <appender name="LOGSTASH" class="com.neatlife.jframework.logback.RedisAppender">
+    <appender name="LOGSTASH" class="com.github.neatlife.jframework.logback.RedisAppender">
         <source>jframework</source>
         <host>127.0.0.1</host>
         <port>6379</port>
@@ -92,7 +92,7 @@
         <to>dear.lin@live.com</to>
         <from>jframework</from>
         <subject>Error: %logger{20} - %m</subject>
-        <layout class="com.neatlife.jframework.logback.CustomHTMLLayout"/>
+        <layout class="com.github.neatlife.jframework.logback.CustomHTMLLayout"/>
     </appender>
 
     <root level="DEBUG">
