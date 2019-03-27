@@ -19,6 +19,15 @@
 16. 支持Jenkinsfile构建
 17. 二维码生成工具类
 
+##### Maven中引入Jar包
+
+```xml
+<dependency>
+    <groupId>com.github.neatlife</groupId>
+    <artifactId>jframework</artifactId>
+    <version>0.0.4</version>
+</dependency>
+```
 
 ##### 配置文件示例: src/main/resources/application.properties
 
