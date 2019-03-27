@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.github.neatlife</groupId>
     <artifactId>jframework</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
     <name>jframework</name>
     <url>https://github.com/neatlife/jframework</url>
     <description>基于对spring boot的二次封装，目的是减少重复代码，提高开发效率</description>
@@ -146,10 +146,6 @@
     <build>
         <finalName>jframework</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <!--生成Source jar文件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
