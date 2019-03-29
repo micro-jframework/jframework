@@ -69,6 +69,10 @@ spring.redis.lettuce.pool.max-wait=-1
 spring.redis.lettuce.pool.max-idle=8
 # 连接池中的最小空闲连接 默认 0
 spring.redis.lettuce.pool.min-idle=0
+
+# 防止邮件重发
+jframework.mail.enable-no-repeat=false
+jframework.mail.repeat-interval=600
 ```
 
 ##### docker 构建步骤
