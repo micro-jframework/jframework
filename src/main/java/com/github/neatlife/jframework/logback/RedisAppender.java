@@ -59,9 +59,8 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
         try {
             String json = layout == null ? jsonlayout.doLayout(event) : layout.doLayout(event);
             String logMd5 = Md5Util.getMD5String(json);
-            if (ObjectUtils.isEmpty(RedisUtil.getCacheObject(logMd5))) {
+            if (enableNoRepeat && ObjectUtils.isEmpty(RedisUtil.getCacheObject(logMd5))) {
                 client.rpush(key, json);
-            } else {
                 RedisUtil.setCacheObject(logMd5, true, repeatInterval, TimeUnit.SECONDS);
             }
         } catch (Exception e) {

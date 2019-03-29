@@ -1,14 +1,14 @@
 package com.github.neatlife.jframework.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import java.io.File;
 
 /**
  * @author suxiaolin
@@ -25,16 +25,13 @@ public class Md5Util {
         byte[] bytes = null;
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
-            bytes = md5.digest(str.getBytes("UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            bytes = md5.digest(str.getBytes(StandardCharsets.UTF_8));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return HexUtil.bytes2Hex(bytes);
 
     }
-
 
 
     /**
