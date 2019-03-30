@@ -3,13 +3,17 @@ package com.github.neatlife.jframework.logback;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Layout;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
+import com.github.neatlife.jframework.util.Md5Util;
+import com.github.neatlife.jframework.util.RedisUtil;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.springframework.util.ObjectUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Protocol;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
@@ -32,6 +36,19 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
     String password = null;
     int database = Protocol.DEFAULT_DATABASE;
 
+    private static Boolean enableNoRepeat = false;
+
+    private static Integer repeatInterval = 600;
+
+    public static void setEnableNoRepeat(Boolean enableNoRepeat) {
+        RedisAppender.enableNoRepeat = enableNoRepeat;
+    }
+
+    public static void setRepeatInterval(Integer repeatInterval) {
+        RedisAppender.repeatInterval = repeatInterval;
+    }
+
+
     public RedisAppender() {
         jsonlayout = new JSONEventLayout();
     }
@@ -41,7 +58,11 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
         Jedis client = pool.getResource();
         try {
             String json = layout == null ? jsonlayout.doLayout(event) : layout.doLayout(event);
-            client.rpush(key, json);
+            String logMd5 = Md5Util.getMD5String(json);
+            if (enableNoRepeat && ObjectUtils.isEmpty(RedisUtil.getCacheObject(logMd5))) {
+                client.rpush(key, json);
+                RedisUtil.setCacheObject(logMd5, true, repeatInterval, TimeUnit.SECONDS);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             pool.returnBrokenResource(client);

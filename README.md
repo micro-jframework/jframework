@@ -19,6 +19,15 @@
 16. 支持Jenkinsfile构建
 17. 二维码生成工具类
 
+##### Maven中引入Jar包
+
+```xml
+<dependency>
+    <groupId>com.github.neatlife</groupId>
+    <artifactId>jframework</artifactId>
+    <version>0.0.4</version>
+</dependency>
+```
 
 ##### 配置文件示例: src/main/resources/application.properties
 
@@ -60,6 +69,10 @@ spring.redis.lettuce.pool.max-wait=-1
 spring.redis.lettuce.pool.max-idle=8
 # 连接池中的最小空闲连接 默认 0
 spring.redis.lettuce.pool.min-idle=0
+
+# 防止邮件重发
+jframework.mail.enable-no-repeat=false
+jframework.mail.repeat-interval=600
 ```
 
 ##### docker 构建步骤

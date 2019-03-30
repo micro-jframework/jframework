@@ -33,7 +33,6 @@ public class JSONEventLayout extends LayoutBase<ILoggingEvent> {
     private int callerStackIdx = 0;
     private boolean properties = false;
 
-
     public JSONEventLayout() {
         try {
             setSourceHost(InetAddress.getLocalHost().getHostName());
@@ -92,6 +91,7 @@ public class JSONEventLayout extends LayoutBase<ILoggingEvent> {
     /**
      * Formats a {@link ILoggingEvent} in conformity with the log4j.dtd.
      */
+    @Override
     public synchronized String doLayout(ILoggingEvent event) {
 
         // Reset working buffer. If the buffer is too large, then we need a new
