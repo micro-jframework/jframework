@@ -40,7 +40,7 @@ public class TestController extends Controller {
     }
 
     @GetMapping(path = "/download")
-    public ResponseEntity<Resource> download(String param) throws IOException {
+    public ResponseEntity<Resource> download() throws IOException {
         File file = new File("src/main/resources/1.png");
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
