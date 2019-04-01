@@ -33,11 +33,10 @@ public class TestController extends Controller {
 
     @GetMapping(value = "/image", produces = MediaType.IMAGE_PNG_VALUE)
     public void getImage(HttpServletResponse response) throws IOException {
-
-        FileInputStream fileInputStream = new FileInputStream(new File("src/main/resources/1.png"));
-
-        response.setContentType(MediaType.IMAGE_PNG_VALUE);
-        StreamUtils.copy(fileInputStream, response.getOutputStream());
+        try (FileInputStream fileInputStream = new FileInputStream(new File("src/main/resources/1.png"))) {
+            response.setContentType(MediaType.IMAGE_PNG_VALUE);
+            StreamUtils.copy(fileInputStream, response.getOutputStream());
+        }
     }
 
     @GetMapping(path = "/download")
