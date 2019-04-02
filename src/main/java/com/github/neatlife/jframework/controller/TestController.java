@@ -44,7 +44,8 @@ public class TestController extends Controller {
         File file = new File("src/main/resources/1.png");
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
-        HttpHeaders headers = new HttpHeaders(); headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=1.png");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=1.png");
 
         return ResponseEntity.ok()
                 .headers(headers)

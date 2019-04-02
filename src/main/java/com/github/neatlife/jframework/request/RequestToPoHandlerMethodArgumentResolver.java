@@ -12,11 +12,11 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class RequestFormToPojoHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
+public class RequestToPoHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(RequestFormToPojo.class);
+        return parameter.hasParameterAnnotation(RequestToPo.class);
     }
 
     @Override
