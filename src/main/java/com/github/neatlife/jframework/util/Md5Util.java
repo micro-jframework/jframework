@@ -1,9 +1,10 @@
 package com.github.neatlife.jframework.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +15,7 @@ import java.security.NoSuchAlgorithmException;
  * @author suxiaolin
  * @date 2019-03-29 09:02
  */
+@Slf4j
 public class Md5Util {
     /**
      * 获得字符串的md5值
@@ -27,7 +29,7 @@ public class Md5Util {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             bytes = md5.digest(str.getBytes(StandardCharsets.UTF_8));
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            log.error("e message: {}", e.getMessage());
         }
         return HexUtil.bytes2Hex(bytes);
 
@@ -62,23 +64,21 @@ public class Md5Util {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(byteBuffer);
             ret = HexUtil.bytes2Hex(md5.digest());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+        } catch (IOException | NoSuchAlgorithmException e) {
+            log.error("e message: {}", e.getMessage());
         } finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error("e message: {}", e.getMessage());
                 }
             }
             if (ch != null) {
                 try {
                     ch.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error("e message: {}", e.getMessage());
                 }
             }
         }

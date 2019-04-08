@@ -1,6 +1,7 @@
 package com.github.neatlife.jframework.util;
 
 import org.springframework.data.redis.core.*;
+import org.springframework.util.ObjectUtils;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -190,5 +191,27 @@ public class RedisUtil {
     public static <T> Map<Integer, T> getCacheIntegerMap(String key) {
         Map<Integer, T> map = redisTemplate.opsForHash().entries(key);
         return map;
+    }
+
+    /**
+     * push
+     *
+     * @param key      缓存的键值
+     * @param message 待缓存的数据
+     * @return 缓存的对象
+     */
+    public static Boolean lpush(String key, String message) {
+        return !ObjectUtils.isEmpty(redisTemplate.opsForList().leftPush(key, message));
+    }
+
+    /**
+     * 阻塞队列, 出队列
+     *
+     * @param queue 需要阻塞的队列名称
+     * @param blockSeconds 阻塞的秒数
+     * @return
+     */
+    public static String blpop(String queue, Integer blockSeconds) {
+         return (String) redisTemplate.opsForList().leftPop(queue, blockSeconds, TimeUnit.SECONDS);
     }
 }

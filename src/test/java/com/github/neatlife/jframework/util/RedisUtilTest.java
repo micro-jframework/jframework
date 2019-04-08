@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.ObjectUtils;
 
 /**
  * @author suxiaolin
@@ -14,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RedisUtilTest {
+    private final static String QUEUE = "myqueue";
 
     @Test
     public void setGetObject() {
@@ -25,4 +27,25 @@ public class RedisUtilTest {
         Assert.assertEquals(personFromRedis.getAge(), person.getAge());
     }
 
+    @Test
+    public void blpop() {
+        while (true) {
+            String message = RedisUtil.blpop(QUEUE, 30);
+            if (ObjectUtils.isEmpty(message)) {
+                System.out.println("没有收到消息");
+            } else {
+                System.out.println("收到消息，消息是: " + message);
+            }
+        }
+    }
+
+    @Test
+    public void lpush() throws Exception {
+        while (true) {
+            String message = "message: " + System.currentTimeMillis();
+            RedisUtil.lpush(QUEUE, message);
+            System.out.println("push message: " + message);
+            Thread.sleep(1000L);
+        }
+    }
 }

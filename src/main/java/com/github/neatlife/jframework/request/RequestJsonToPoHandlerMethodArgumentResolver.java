@@ -13,15 +13,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestJsonToPojoHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
+public class RequestJsonToPoHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(RequestJsonToPojo.class);
+        return parameter.hasParameterAnnotation(RequestJsonToPo.class);
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory binderFactory) throws Exception {
-        RequestJsonToPojo parameterAnnotation = parameter.getParameterAnnotation(RequestJsonToPojo.class);
+        RequestJsonToPo parameterAnnotation = parameter.getParameterAnnotation(RequestJsonToPo.class);
         assert parameterAnnotation != null;
         String value = parameterAnnotation.value();
         Class<?> clazz = parameter.getNestedParameterType();

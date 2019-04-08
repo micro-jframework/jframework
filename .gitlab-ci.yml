@@ -1,0 +1,25 @@
+sonar_preview:
+  stage: test
+  script:
+    - ci/sonar_preview.sh
+  except:
+    - master
+  tags:
+    - framework
+
+auto_test:
+  stage: test
+  script: ci/auto_test.sh
+  except:
+    - master
+  tags:
+    - framework
+
+sonar_analyze:
+  stage: test
+  script:
+    - ci/sonar_analyze.sh
+  only:
+    - master
+  tags:
+    - framework

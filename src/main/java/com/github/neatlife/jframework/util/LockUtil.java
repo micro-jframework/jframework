@@ -1,6 +1,7 @@
 package com.github.neatlife.jframework.util;
 
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 
@@ -11,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @author suxiaolin
  * @date 2019-03-21 8:12
  */
+@Slf4j
 public class LockUtil {
     public static final String LOCK_SCRIPT_STR = "if redis.call('set',KEYS[1],ARGV[1],'EX',ARGV[2],'NX') then return 1 else return 0 end";
     public static final String UNLOCK_SCRIPT_STR = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
@@ -84,7 +86,7 @@ public class LockUtil {
             try {
                 TimeUnit.MILLISECONDS.sleep(sleepInterval);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("e message: {}", e.getMessage());
             }
             continue;
         }

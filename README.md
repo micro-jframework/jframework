@@ -1,4 +1,6 @@
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=neatlife_jframework&metric=alert_status)](https://sonarcloud.io/dashboard?id=neatlife_jframework)
+
 ##### 基于对spring boot的二次封装，目的是减少重复代码，提高开发效率, 收集可复用的技术
 
 1. 实现jpa对Long类型的时间戳的created_at, updated_at和deleted_at字段的自动维护
@@ -18,6 +20,7 @@
 15. json响应工具类
 16. 支持Jenkinsfile构建
 17. 二维码生成工具类
+18. redis阻塞消息队列
 
 ##### Maven中引入Jar包
 

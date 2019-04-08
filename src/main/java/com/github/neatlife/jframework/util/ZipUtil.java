@@ -58,7 +58,6 @@ public class ZipUtil {
             File[] childFileList = file.listFiles();
             if (!ObjectUtils.isEmpty(childFileList)) {
                 for (File childFile : childFileList) {
-                    childFile.getAbsolutePath().indexOf(file.getAbsolutePath());
                     zip(srcRootDir, childFile, zos);
                 }
             }
