@@ -1,5 +1,6 @@
 package com.github.neatlife.jframework.util;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -64,20 +65,16 @@ public class HttpUtil {
          */
         int maxTotal = 200;
         int maxPerRoute = 20;
-        int defaultdefaultConnectTimeoutMS = -1;
-        int defaultSocketTimeoutMS = -1;
+        defaultSocketTimeoutMS = -1;
         boolean autoRedirect = false;
-        boolean retryAble = true;
+        retryAble = true;
 
-        defaultConnectTimeoutMS = defaultConnectTimeoutMS;
-        defaultSocketTimeoutMS = defaultSocketTimeoutMS;
-        retryAble = retryAble;
         HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
         SSLContext sslContext = null;
         try {
             sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
         } catch (NoSuchAlgorithmException | KeyManagementException | KeyStoreException e) {
-            e.printStackTrace();
+            log.error("e message: {}", e.getMessage());
         }
         httpClientBuilder.setSSLContext(sslContext);
         Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
@@ -457,7 +454,7 @@ public class HttpUtil {
             // 同络错误重试5次
             if (retryAble && retry <= 5) {
                 try {
-                    Thread.sleep(1000 * retry);
+                    Thread.sleep(1000L * retry);
                 } catch (InterruptedException e1) {
                     Thread.currentThread().interrupt();
                     log.warn("estring: {}", e.getMessage());
@@ -474,9 +471,10 @@ public class HttpUtil {
         }
     }
 
-    static class ResponseWrap {
-        public int statusCode;
-        public String result;
-        public Map<String, List<String>> head;
+    @Data
+    private static class ResponseWrap {
+        private int statusCode;
+        private String result;
+        private Map<String, List<String>> head;
     }
 }

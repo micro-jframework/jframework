@@ -5,6 +5,7 @@ import ch.qos.logback.core.Layout;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
 import com.github.neatlife.jframework.util.Md5Util;
 import com.github.neatlife.jframework.util.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.util.ObjectUtils;
 import redis.clients.jedis.Jedis;
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
     JedisPool pool;
@@ -64,7 +66,7 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
                 RedisUtil.setCacheObject(logMd5, true, repeatInterval, TimeUnit.SECONDS);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("e message: {}", e.getMessage());
             pool.returnBrokenResource(client);
             client = null;
         } finally {
