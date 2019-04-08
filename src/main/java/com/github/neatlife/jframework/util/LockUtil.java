@@ -87,8 +87,8 @@ public class LockUtil {
                 TimeUnit.MILLISECONDS.sleep(sleepInterval);
             } catch (InterruptedException e) {
                 log.error("e message: {}", e.getMessage());
+                Thread.currentThread().interrupt();
             }
-            continue;
         }
         return false;
     }
