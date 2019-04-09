@@ -4,7 +4,6 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Layout;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
 import com.github.neatlife.jframework.util.Md5Util;
-import com.github.neatlife.jframework.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.util.ObjectUtils;
@@ -14,7 +13,6 @@ import redis.clients.jedis.Protocol;
 
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
@@ -59,11 +57,12 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
     protected void append(ILoggingEvent event) {
         Jedis client = pool.getResource();
         try {
+
             String json = layout == null ? jsonlayout.doLayout(event) : layout.doLayout(event);
             String logMd5 = Md5Util.getMD5String(json);
-            if (enableNoRepeat && ObjectUtils.isEmpty(RedisUtil.getCacheObject(logMd5))) {
+            if (enableNoRepeat && ObjectUtils.isEmpty(client.get(logMd5))) {
                 client.rpush(key, json);
-                RedisUtil.setCacheObject(logMd5, true, repeatInterval, TimeUnit.SECONDS);
+                client.setex(logMd5, repeatInterval, logMd5);
             }
         } catch (Exception e) {
             log.error("e message: {}", e.getMessage());
