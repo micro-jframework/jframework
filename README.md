@@ -28,7 +28,7 @@
 <dependency>
     <groupId>com.github.neatlife</groupId>
     <artifactId>jframework</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.8</version>
 </dependency>
 ```
 
@@ -36,7 +36,7 @@
 
 ```properties
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://127.0.0.1/jframework?useUnicode=yes&characterEncoding=utf-8&useSSL=false
+spring.datasource.url=jdbc:mysql://127.0.0.1/jframework?useUnicode=yes&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=root
 spring.datasource.password=root
 spring.jpa.open-in-view=false
