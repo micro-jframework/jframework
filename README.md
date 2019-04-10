@@ -1,5 +1,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=neatlife_jframework&metric=alert_status)](https://sonarcloud.io/dashboard?id=neatlife_jframework)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.neatlife/jframework.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.neatlife%22%20AND%20a:%22jframework%22)
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 ##### 基于对spring boot的二次封装，目的是减少重复代码，提高开发效率, 收集可复用的技术
 
