@@ -28,24 +28,19 @@ public class RedisUtilTest {
     }
 
     @Test
-    public void blpop() {
-        while (true) {
-            String message = RedisUtil.blpop(QUEUE, 30);
-            if (ObjectUtils.isEmpty(message)) {
-                System.out.println("没有收到消息");
-            } else {
-                System.out.println("收到消息，消息是: " + message);
-            }
+    public void blpop() throws Exception {
+        lpush();
+        String message = RedisUtil.blpop(QUEUE, 30);
+        if (ObjectUtils.isEmpty(message)) {
+            System.out.println("没有收到消息");
+        } else {
+            System.out.println("收到消息，消息是: " + message);
         }
     }
 
-    @Test
     public void lpush() throws Exception {
-        while (true) {
-            String message = "message: " + System.currentTimeMillis();
-            RedisUtil.lpush(QUEUE, message);
-            System.out.println("push message: " + message);
-            Thread.sleep(1000L);
-        }
+        String message = "message: " + System.currentTimeMillis();
+        RedisUtil.lpush(QUEUE, message);
+        System.out.println("push message: " + message);
     }
 }
