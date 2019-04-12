@@ -23,6 +23,7 @@
 16. 支持Jenkinsfile构建
 17. 二维码生成工具类
 18. redis阻塞消息队列
+17. id生成工具类
 
 ##### Maven中引入Jar包
 
@@ -30,7 +31,7 @@
 <dependency>
     <groupId>com.github.neatlife</groupId>
     <artifactId>jframework</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.10</version>
 </dependency>
 ```
 
