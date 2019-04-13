@@ -1,17 +1,13 @@
 package com.github.neatlife.jframework.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.neatlife.jframework.JframeworkApplicationTests;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class BigDecimalSpecifyTest {
+public class BigDecimalSpecifyTest extends JframeworkApplicationTests {
 
     @Test
     public void test1() throws Exception {

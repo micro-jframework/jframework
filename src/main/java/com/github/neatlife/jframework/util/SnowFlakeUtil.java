@@ -48,16 +48,7 @@ public class SnowFlakeUtil {
         private static final long TIMESTAMP_LEFT_SHIFT_BITS = WORKER_ID_LEFT_SHIFT_BITS + WORKER_ID_BITS;
 
         private static final long WORKER_ID_MAX_VALUE = 1L << WORKER_ID_BITS;
-
-        private final long workerId;
-
         private static final int MAX_TOLERATE_TIME_DIFFERENCE_MILLISECONDS = 10;
-
-        private byte sequenceOffset;
-
-        private long sequence;
-
-        private long lastMilliseconds;
 
         static {
             Calendar calendar = Calendar.getInstance();
@@ -68,6 +59,11 @@ public class SnowFlakeUtil {
             calendar.set(Calendar.MILLISECOND, 0);
             EPOCH = calendar.getTimeInMillis();
         }
+
+        private final long workerId;
+        private byte sequenceOffset;
+        private long sequence;
+        private long lastMilliseconds;
 
         SnowflakeShardingKeyGenerator(long workerId) {
             this.workerId = workerId;

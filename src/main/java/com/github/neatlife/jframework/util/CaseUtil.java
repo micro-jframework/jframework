@@ -14,7 +14,7 @@ public class CaseUtil {
         Matcher matcher = p.matcher(origin);
         StringBuffer sb = new StringBuffer();
 
-        while(matcher.find()) {
+        while (matcher.find()) {
             matcher.appendReplacement(sb, matcher.group(1).toUpperCase());
         }
 

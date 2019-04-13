@@ -17,15 +17,14 @@ import java.util.Iterator;
 @Slf4j
 public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
+    private static Boolean enableNoRepeat = false;
+    private static Integer repeatInterval = 600;
     JedisPool pool;
-
     /**
      * keep this for redis compatibility for now
      */
     JSONEventLayout jsonlayout;
-
     Layout<ILoggingEvent> layout;
-
     /**
      * logger configurable options
      */
@@ -36,9 +35,9 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
     String password = null;
     int database = Protocol.DEFAULT_DATABASE;
 
-    private static Boolean enableNoRepeat = false;
-
-    private static Integer repeatInterval = 600;
+    public RedisAppender() {
+        jsonlayout = new JSONEventLayout();
+    }
 
     public static void setEnableNoRepeat(Boolean enableNoRepeat) {
         RedisAppender.enableNoRepeat = enableNoRepeat;
@@ -46,11 +45,6 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
     public static void setRepeatInterval(Integer repeatInterval) {
         RedisAppender.repeatInterval = repeatInterval;
-    }
-
-
-    public RedisAppender() {
-        jsonlayout = new JSONEventLayout();
     }
 
     @Override

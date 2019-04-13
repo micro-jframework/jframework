@@ -2,6 +2,7 @@ package com.github.neatlife.jframework.listener;
 
 import com.github.neatlife.jframework.JFrameworkConfig;
 import com.github.neatlife.jframework.logback.RedisAppender;
+import com.github.neatlife.jframework.util.DdUtil;
 import com.github.neatlife.jframework.util.LockUtil;
 import com.github.neatlife.jframework.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,6 @@ public class ApplicationStartedEventListener implements ApplicationListener<Appl
         LockUtil.setRedisTemplate(redisTemplate);
         RedisAppender.setEnableNoRepeat(jFrameworkConfig.getMail().getEnableNoRepeat());
         RedisAppender.setRepeatInterval(jFrameworkConfig.getMail().getRepeatInterval());
+        DdUtil.setDdUrl(jFrameworkConfig.getNotification().getDdUrl());
     }
 }
