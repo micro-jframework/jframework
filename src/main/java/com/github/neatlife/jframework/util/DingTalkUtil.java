@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
  * @date 2019-04-13 08:53
  */
 @Slf4j
-public class DdUtil {
+public class DingTalkUtil {
     private static String ddUrl = "";
 
     public static void setDdUrl(String ddUrl) {
-        DdUtil.ddUrl = ddUrl;
+        DingTalkUtil.ddUrl = ddUrl;
     }
 
     public static boolean send(String content, String title, Set<String> receivers) {
@@ -31,7 +31,6 @@ public class DdUtil {
                             + " }");
             return result.getStatusCode() == 200;
         } catch (Exception e) {
-            log.error(e.getMessage());
             return false;
         }
     }

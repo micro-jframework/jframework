@@ -11,11 +11,11 @@ import java.util.stream.Stream;
  * @author suxiaolin
  * @date 2019-04-13 8:03
  */
-public class DdUtilTest extends JframeworkApplicationTests {
+public class DingTalkUtilTest extends JframeworkApplicationTests {
 
     @Test
     public void send() {
-        boolean success = DdUtil.send("test content", "test title", Stream.of("13288888888").collect(Collectors.toSet()));
+        boolean success = DingTalkUtil.send("test content", "test title", Stream.of("13288888888").collect(Collectors.toSet()));
         Assert.assertTrue(success);
     }
 }

@@ -80,7 +80,8 @@ spring.redis.lettuce.pool.min-idle=0
 jframework.mail.enable-no-repeat=false
 jframework.mail.repeat-interval=600
 # 钉钉机器人地址
-jframework.notification.dd-url=https://oapi.dingtalk.com/robot/send?access_token=钉钉机器人token
+jframework.notification.ding-talk-url=https://oapi.dingtalk.com/robot/send?access_token=钉钉机器人token
+jframework.notification.ding-talk-to=钉钉收件人手机号
 ```
 
 ##### docker 构建步骤

@@ -19,7 +19,8 @@ public class JFrameworkConfig {
 
     @Data
     public static class Notification {
-        private String ddUrl;
+        private String dingTalkUrl;
+        private String dingTalkTo;
     }
 
     @Data
