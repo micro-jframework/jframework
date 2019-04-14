@@ -12,6 +12,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class RequestJsonToPoHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
@@ -22,7 +23,7 @@ public class RequestJsonToPoHandlerMethodArgumentResolver implements HandlerMeth
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory binderFactory) throws Exception {
         RequestJsonToPo parameterAnnotation = parameter.getParameterAnnotation(RequestJsonToPo.class);
-        assert parameterAnnotation != null;
+        Objects.requireNonNull(parameterAnnotation);
         String value = parameterAnnotation.value();
         Class<?> clazz = parameter.getNestedParameterType();
         String jsonParameter = nativeWebRequest.getParameter(value);
@@ -42,5 +43,4 @@ public class RequestJsonToPoHandlerMethodArgumentResolver implements HandlerMeth
             return JsonUtil.toObject(jsonParameter, clazz);
         }
     }
-
 }

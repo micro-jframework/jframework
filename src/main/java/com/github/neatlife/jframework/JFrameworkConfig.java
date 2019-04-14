@@ -15,6 +15,14 @@ public class JFrameworkConfig {
 
     private Mail mail = new Mail();
 
+    private Notification notification = new Notification();
+
+    @Data
+    public static class Notification {
+        private String dingTalkUrl;
+        private String dingTalkTo;
+    }
+
     @Data
     public static class Mail {
         private Boolean enableNoRepeat = false;

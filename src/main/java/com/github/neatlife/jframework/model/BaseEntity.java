@@ -1,4 +1,4 @@
-package com.github.neatlife.jframework.po;
+package com.github.neatlife.jframework.model;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * @author suxiaolin
  */
 @Data
-public abstract class BasePo {
+public abstract class BaseEntity {
 
     private Long createdAt;
 

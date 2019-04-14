@@ -8,6 +8,7 @@
     <springProperty scope="context" name="MAIL_USERNAME" source="spring.mail.username"/>
     <springProperty scope="context" name="MAIL_PASSWORD" source="spring.mail.password"/>
     <springProperty scope="context" name="MAIL_ENABLE_TLS" source="spring.mail.properties.mail.smtp.starttls.enable"/>
+    <springProperty scope="context" name="DING_TALK_TO" source="jframework.notification.ding-talk-to"/>
 
     <appender name="infoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果只是想要 Info 级别的日志，只是过滤 info 还是会输出 Error 日志，因为 Error 的级别高，
@@ -79,6 +80,9 @@
         </additionalField>
         <Location>true</Location>
     </appender>
+    <appender name="DING_TALK" class="com.github.neatlife.jframework.logback.DingTalkAppender">
+        <to>${DING_TALK_TO}</to>
+    </appender>
     <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
         <appender-ref ref="LOGSTASH"/>
     </appender>
@@ -114,6 +118,7 @@
         <appender-ref ref="errorLog"/>
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="EMAIL"/>
+        <appender-ref ref="DING_TALK"/>
     </root>
 
 </configuration>
