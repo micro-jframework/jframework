@@ -31,7 +31,7 @@
 <dependency>
     <groupId>com.github.neatlife</groupId>
     <artifactId>jframework</artifactId>
-    <version>0.0.10</version>
+    <version>0.0.11</version>
 </dependency>
 ```
 
