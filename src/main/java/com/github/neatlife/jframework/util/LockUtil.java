@@ -1,11 +1,11 @@
 package com.github.neatlife.jframework.util;
 
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.ReturnType;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 
-import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -79,7 +79,16 @@ public class LockUtil {
     public static boolean tryGetDistributedLock(String lockKey, String requestId, Integer expireSecond, Long loopTimes, Long sleepInterval) {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>(LOCK_SCRIPT_STR, Long.class);
         while (loopTimes-- >= 0) {
-            Object result = redisTemplate.execute(redisScript, Lists.newArrayList(lockKey), requestId, String.valueOf(expireSecond));
+            Object result = redisTemplate.execute(
+                    (RedisConnection connection) -> connection.eval(
+                            redisScript.getScriptAsString().getBytes(),
+                            ReturnType.INTEGER,
+                            1,
+                            lockKey.getBytes(),
+                            requestId.getBytes(),
+                            String.valueOf(expireSecond).getBytes()
+                    )
+            );
             if (SUCCESS.equals(result)) {
                 return true;
             }
@@ -113,7 +122,15 @@ public class LockUtil {
      */
     public static boolean releaseDistributedLock(String lockKey, String requestId) {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>(UNLOCK_SCRIPT_STR, Long.class);
-        Object result = redisTemplate.execute(redisScript, Collections.singletonList(lockKey), requestId);
+        Object result = redisTemplate.execute(
+                (RedisConnection connection) -> connection.eval(
+                        redisScript.getScriptAsString().getBytes(),
+                        ReturnType.INTEGER,
+                        1,
+                        lockKey.getBytes(),
+                        requestId.getBytes()
+                )
+        );
         return SUCCESS.equals(result);
     }
 
