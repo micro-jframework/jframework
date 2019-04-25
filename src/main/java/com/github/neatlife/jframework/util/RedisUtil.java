@@ -196,7 +196,7 @@ public class RedisUtil {
     /**
      * push
      *
-     * @param key      缓存的键值
+     * @param key     缓存的键值
      * @param message 待缓存的数据
      * @return 缓存的对象
      */
@@ -207,11 +207,11 @@ public class RedisUtil {
     /**
      * 阻塞队列, 出队列
      *
-     * @param queue 需要阻塞的队列名称
+     * @param queue        需要阻塞的队列名称
      * @param blockSeconds 阻塞的秒数
      * @return
      */
     public static String blpop(String queue, Integer blockSeconds) {
-         return (String) redisTemplate.opsForList().leftPop(queue, blockSeconds, TimeUnit.SECONDS);
+        return (String) redisTemplate.opsForList().leftPop(queue, blockSeconds, TimeUnit.SECONDS);
     }
 }

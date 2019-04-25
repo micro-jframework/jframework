@@ -1,6 +1,5 @@
 package com.github.neatlife.jframework.util;
 
-import com.github.neatlife.jframework.util.exception.QRCodeReadException;
 import com.google.common.collect.Maps;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
@@ -107,7 +106,7 @@ public class QRCodeUtil {
         BufferedImage image;
         image = ImageIO.read(file);
         if (Objects.isNull(image)) {
-            throw new QRCodeReadException("无法读取源文件");
+            throw new RuntimeException("无法读取源文件");
         }
         LuminanceSource source = new BufferedImageLuminanceSource(image);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));

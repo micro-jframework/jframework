@@ -3,10 +3,8 @@ package com.github.neatlife.jframework.logback;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Layout;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
-import com.github.neatlife.jframework.util.Md5Util;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import org.springframework.util.ObjectUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Protocol;
@@ -18,14 +16,11 @@ import java.util.Iterator;
 public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
 
     JedisPool pool;
-
     /**
      * keep this for redis compatibility for now
      */
     JSONEventLayout jsonlayout;
-
     Layout<ILoggingEvent> layout;
-
     /**
      * logger configurable options
      */
@@ -35,19 +30,6 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
     int timeout = Protocol.DEFAULT_TIMEOUT;
     String password = null;
     int database = Protocol.DEFAULT_DATABASE;
-
-    private static Boolean enableNoRepeat = false;
-
-    private static Integer repeatInterval = 600;
-
-    public static void setEnableNoRepeat(Boolean enableNoRepeat) {
-        RedisAppender.enableNoRepeat = enableNoRepeat;
-    }
-
-    public static void setRepeatInterval(Integer repeatInterval) {
-        RedisAppender.repeatInterval = repeatInterval;
-    }
-
 
     public RedisAppender() {
         jsonlayout = new JSONEventLayout();
@@ -59,11 +41,7 @@ public class RedisAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
         try {
 
             String json = layout == null ? jsonlayout.doLayout(event) : layout.doLayout(event);
-            String logMd5 = Md5Util.getMD5String(json);
-            if (enableNoRepeat && ObjectUtils.isEmpty(client.get(logMd5))) {
-                client.rpush(key, json);
-                client.setex(logMd5, repeatInterval, logMd5);
-            }
+            client.rpush(key, json);
         } catch (Exception e) {
             log.error("e message: {}", e.getMessage());
             pool.returnBrokenResource(client);

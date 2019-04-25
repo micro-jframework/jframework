@@ -472,7 +472,7 @@ public class HttpUtil {
     }
 
     @Data
-    private static class ResponseWrap {
+    public static class ResponseWrap {
         private int statusCode;
         private String result;
         private Map<String, List<String>> head;

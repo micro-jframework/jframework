@@ -31,6 +31,14 @@ public class TestController extends Controller {
         return "hello world.";
     }
 
+    @GetMapping("/send-dingtalk-error")
+    public String sendDingTalkError() throws Exception {
+        if (true) {
+            throw new Exception("这个是一个错误");
+        }
+        return "Hello";
+    }
+
     @GetMapping(value = "/image", produces = MediaType.IMAGE_PNG_VALUE)
     public void getImage(HttpServletResponse response) throws IOException {
         try (FileInputStream fileInputStream = new FileInputStream(new File("src/main/resources/1.png"))) {

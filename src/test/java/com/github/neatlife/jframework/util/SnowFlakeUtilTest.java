@@ -17,7 +17,7 @@ public class SnowFlakeUtilTest {
     public void next() {
         long count = 1000;
         List<Long> idList = Lists.newArrayList();
-        for (int i = 0; i < count; i ++) {
+        for (int i = 0; i < count; i++) {
             long id = SnowFlakeUtil.next();
             idList.add(id);
             System.out.println("id: " + id);
