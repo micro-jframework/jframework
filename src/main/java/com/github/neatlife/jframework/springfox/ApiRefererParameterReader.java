@@ -17,12 +17,12 @@ import springfox.documentation.spi.service.contexts.ParameterContext;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE + 1)
 @Slf4j
-class ApiClassParameterReader implements ParameterBuilderPlugin {
+class ApiRefererParameterReader implements ParameterBuilderPlugin {
 
     @Override
     public void apply(ParameterContext context) {
-        ApiClass apiClass = context.getOperationContext().findAnnotation(ApiClass.class).orNull();
-        if (ObjectUtils.isEmpty(apiClass)) {
+        ApiReferer apiReferer = context.getOperationContext().findAnnotation(ApiReferer.class).orNull();
+        if (ObjectUtils.isEmpty(apiReferer)) {
             return;
         }
         String filedName = context.resolvedMethodParameter().defaultName().orNull();
@@ -30,10 +30,10 @@ class ApiClassParameterReader implements ParameterBuilderPlugin {
             return;
         }
         try {
-            String apimodelPropertyValue = apiClass.value().getDeclaredField(filedName).getAnnotation(ApiModelProperty.class).value();
+            String apimodelPropertyValue = apiReferer.value().getDeclaredField(filedName).getAnnotation(ApiModelProperty.class).value();
             context.parameterBuilder().description(apimodelPropertyValue);
         } catch (Exception e) {
-            log.debug("apiClass get filed error ", e);
+            log.debug("apiReferer get filed error ", e);
         }
     }
 
