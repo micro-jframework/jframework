@@ -1,72 +1,62 @@
-{
-  "kind": "DaemonSet",
-  "apiVersion": "extensions/v1beta1",
-  "metadata": {
-    "name": "gateway",
-    "namespace": "default",
-    "labels": {
-      "k8s-app": "gateway"
-    },
-    "annotations": {
-      "deployment.kubernetes.io/revision": "2"
-    }
-  },
-  "spec": {
-    "selector": {
-      "matchLabels": {
-        "k8s-app": "gateway"
-      }
-    },
-    "template": {
-      "metadata": {
-        "name": "gateway",
-        "labels": {
-          "k8s-app": "gateway"
-        }
-      },
-      "spec": {
-        "containers": [
-        {
-          "name": "gateway",
-          "ports": [
-          {
-            "containerPort": 8080,
-            "hostPort": 8080,
-            "name": "8080tcp80800",
-            "protocol": "TCP"
-          }
-          ],
-          "image": "registry.cn-hangzhou.aliyuncs.com/suxiaolin/gateway:latest",
-          "readinessProbe": {
-            "httpGet": {
-              "scheme": "HTTP",
-              "path": "/actuator/info",
-              "port": 8080
-            },
-            "initialDelaySeconds": 10,
-            "periodSeconds": 5
-          },
-          "resources": {
-
-          },
-          "terminationMessagePath": "/dev/termination-log",
-          "terminationMessagePolicy": "File",
-          "imagePullPolicy": "Always",
-          "securityContext": {
-            "privileged": false,
-            "procMount": "Default"
-          }
-        }
-        ],
-        "restartPolicy": "Always",
-        "terminationGracePeriodSeconds": 30,
-        "dnsPolicy": "ClusterFirst",
-        "securityContext": {
-
-        },
-        "schedulerName": "default-scheduler"
-      }
-    },
-    "revisionHistoryLimit": 10
-  }
-}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+spec:
+  selector:
+    k8s-app: gateway
+  ports:
+    - protocol: TCP
+      name: http
+      port: 8080
+      targetPort: 8080
+  type: NodePort
+---
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: gateway
+  namespace: default
+  labels:
+    k8s-app: gateway
+  annotations:
+    deployment.kubernetes.io/revision: '2'
+spec:
+  selector:
+    matchLabels:
+      k8s-app: gateway
+  template:
+    metadata:
+      name: gateway
+      labels:
+        k8s-app: gateway
+    spec:
+      containers:
+        - name: gateway
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+              name: 8080tcp80800
+              protocol: TCP
+          image: registry.cn-hangzhou.aliyuncs.com/suxiaolin/gateway:latest
+          livenessProbe:
+            httpGet:
+              scheme: HTTP
+              path: "/actuator/info"
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          resources: {}
+          terminationMessagePath: "/dev/termination-log"
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+          securityContext:
+            privileged: false
+            procMount: Default
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  revisionHistoryLimit: 10
