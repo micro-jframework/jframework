@@ -11,6 +11,7 @@
         <module>jframework-logback</module>
         <module>jframework-jpa</module>
         <module>jframework-hystrix</module>
+        <module>jframework-excel</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
